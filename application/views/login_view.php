@@ -16,7 +16,7 @@
           <?php echo $this->session->flashdata('message'); ?>
           <?php echo $this->session->flashdata('message2'); ?>
           <div class="panel panel-default">
-            <div class="panel-heading"><h4>Sistem Informasi Akademik</h4></div>
+            <div class="panel-heading"><h4>Sistem Informasi Kepegawaian</h4></div>
               <div class="panel-body">
               <form action="<?php echo base_url('login/login'); ?>" name="form-login" id="form-login" method="post" onsubmit="return validateForm()">
                 <div class="input-group">

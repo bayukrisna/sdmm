@@ -75,7 +75,7 @@
           <td rowspan="8" width="15%">
                       
                         <div class="btn btn-file" >
-              <img src="<?php echo base_url();?>uploads/<?php echo $pegawai->foto_pegawai; ?>" onerror="this.src='<?php echo base_url();?>uploads/user.jpg'" id="avatar" width="150"  alt="avatar">
+              <img src="<?php echo base_url();?>uploads/<?php echo $pegawai->foto_pegawai; ?>" onerror="this.src='<?php echo base_url();?>uploads/user.jpg'" id="avatar" width="200"  alt="avatar">
               
 
             </div>

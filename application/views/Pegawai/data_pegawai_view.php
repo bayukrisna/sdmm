@@ -20,6 +20,7 @@
     <th style="text-align:center">Nama</th>
     <th style="text-align:center">Jenis Kelamin</th>
     <th style="text-align:center">Status</th>
+    <th style="text-align:center">Jenis</th>
     <th style="text-align:center">Tgl. Masuk</th>
     <th style="text-align:center">Aksi</th>
   </tr>
@@ -36,7 +37,8 @@
         <td><a href="<?php echo base_url(); ?>pegawai/detail_pegawai/<?php echo $data->id_pegawai; ?>"><?php echo $data->nama_pegawai;?></a></td>
         <td><?php echo $data->jenis_kelamin;?></a></td>
         <td><?php echo $data->status_pegawai;?></td>
-        <td><?php echo $data->tgl_masuk;?></td>
+        <td><?php echo $data->jenis_pegawai;?></td>
+        <td><?php echo date("d M Y", strtotime($data->tgl_masuk));?></td>
         <td>
           
         <a href="<?php echo base_url(); ?>pegawai/edit_pegawai/<?php echo $data->id_pegawai; ?>"  class="btn btn-warning btn-xs btn-flat" ><i class="glyphicon glyphicon-pencil"></i><span class="tooltiptext">Edit</span></a>

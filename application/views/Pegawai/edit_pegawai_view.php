@@ -4,23 +4,23 @@
         <div >
           <div class="panel panel-danger">
             <div class="panel-heading">
-            <i class="fa fa-user-plus"></i> TAMBAH PEGAWAI</div>
+            <i class="fa fa-user-plus"></i> EDIT PEGAWAI</div>
             <div class="panel-body" >
               <div class="row" >
                 <div class="col-lg-6">
-                  <?php echo form_open('pegawai/simpan_pegawai',' method="post" role="form" enctype="multipart/form-data"'); ?>
+                  <?php echo form_open('pegawai/simpan_edit_pegawai/'.$pegawai->id_pegawai,' method="post" role="form" enctype="multipart/form-data"'); ?>
                       <div class="form-group ">
-                          <label>Nama Pegawai <font color="#FF0000">*</font></label>
+                          <label>Nama Pegawai</label>
                           <div class="form-group">
-                               <input type="text" name="nama_pegawai" class="form-control" id="nama_barang" placeholder="Wajib Diisi" required="" >
+                               <input type="text" name="nama_pegawai" class="form-control" id="nama_barang" placeholder="Wajib Diisi" required="" value="<?php echo $pegawai->nama_pegawai; ?>">
                               
                           </div>
                       </div>
                         <div class="form-group ">
-                          <label>Jenis Kelamin <font color="#FF0000">*</font></label>
+                          <label>Jenis Kelamin</label>
                           <div class="form-group">
                               <select name="id_kelamin" id="id_kelamin" class="select2" style="width:100%" required="">
-                              <option value="" selected="selected"> Pilih Jenis Kelamin </option>
+                              <option value="<?php echo $pegawai->id_kelamin; ?>" selected="selected"> <?php echo $pegawai->jenis_kelamin; ?> </option>
                               <option value="1"> Laki - laki </option>
                               <option value="2"> Perempuan </option>            
                             </select>
@@ -30,8 +30,8 @@
                       <div class="form-group ">
                           <label>Agama</label>
                           <div class="form-group">
-                              <select name="id_agama" id="id_agama" class="select2" style="width:100%">
-                              <option value="" selected="selected"> Pilih Agama </option>
+                              <select name="id_agama" id="id_agama" class="select2" style="width:100%" required="">
+                              <option value="<?php echo $pegawai->id_agama; ?>" selected="selected"> <?php echo $pegawai->nama_agama; ?> </option>
                               <option value="1"> Islam </option>
                               <option value="2"> Kristen </option>   
                               <option value="3"> Katholik </option>          
@@ -46,28 +46,28 @@
                      <div class="form-group ">
                           <label>Tempat Lahir</label>
                           <div class="form-group">
-                             <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" value="">
+                             <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" value="<?php echo $pegawai->tempat_lahir; ?>">
                               
                           </div>
                       </div>
                       <div class="form-group ">
-                          <label>Tanggal Lahir <font color="#FF0000">*</font></label>
+                          <label>Tanggal Lahir</label>
                           <div class="form-group">
-                             <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" value="" required="">
+                             <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" value="<?php echo $pegawai->tgl_lahir; ?>" required="">
                               
                           </div>
                       </div>
                       <div class="form-group">
                         <label for="email">No Telepon</label>
-                        <input type="number" name="no_telepon" class="form-control" id="no_telepon" value="" >
+                        <input type="number" name="no_telepon" class="form-control" id="no_telepon" value="<?php echo $pegawai->no_telepon; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" value="" >
+                        <input type="email" name="email" class="form-control" id="email" value="<?php echo $pegawai->email; ?>" >
                       </div>
                       <div class="form-group">
                         <label for="email">Alamat</label>
-                        <textarea name="alamat" id="alamat" class="form-control" placeholder="Isi Bila Ada"></textarea>
+                        <textarea name="alamat" id="alamat" class="form-control" placeholder="Isi Bila Ada"><?php echo $pegawai->alamat; ?></textarea>
                       </div>
                      
                     </div>
@@ -75,15 +75,32 @@
                        <div class="form-group ">
                           <label>NIP</label>
                           <div class="form-group">
-                             <input type="text" name="nip" class="form-control" id="nip" value="">
+                             <input type="text" name="nip" class="form-control" id="nip" value="<?php echo $pegawai->nip; ?>">
                               
                           </div>
                       </div>
                       <div class="form-group ">
-                          <label>Jenis <font color="#FF0000">*</font></label>
+                          <label>Status</label>
                           <div class="form-group">
-                              <select class="select2" style="width:100%" name="id_jp" required="">
-                                  <option value="" selected="selected"> Pilih Jenis </option>
+                              <select class="select2" style="width:100%" name="id_status_pegawai">
+                                  <option value="<?php echo $pegawai->id_status_pegawai; ?>" selected="selected"> <?php echo $pegawai->status_pegawai; ?> </option>
+                                      <?php 
+
+                                    foreach($getStatusPegawai as $row)
+                                    { 
+                                      echo '<option value="'.$row->id_status_pegawai.'">'.$row->status_pegawai.'</option>';
+                                    }
+                                    ?>
+                              </select>
+                               
+                              
+                          </div>
+                      </div>
+                      <div class="form-group ">
+                          <label>Jenis</label>
+                          <div class="form-group">
+                              <select class="select2" style="width:100%" name="id_jp">
+                                  <option value="<?php echo $pegawai->id_jp; ?>" selected="selected"> <?php echo $pegawai->jenis_pegawai; ?> </option>
                                       <?php 
 
                                     foreach($getJenisPegawai as $row)
@@ -99,41 +116,38 @@
                       <div class="form-group ">
                           <label>No Kartu Pegawai</label>
                           <div class="form-group">
-                             <input type="text" name="no_kartu_pegawai" class="form-control" id="no_kartu_pegawai" value="">
+                             <input type="text" name="no_kartu_pegawai" class="form-control" id="no_kartu_pegawai" value="<?php echo $pegawai->no_kartu_pegawai; ?>">
                               
                           </div>
                       </div>
                       <div class="form-group ">
-                          <label>Tanggal Masuk <font color="#FF0000">*</font></label>
+                          <label>Tanggal Masuk</label>
                           <div class="form-group">
-                             <input type="date" name="tgl_masuk" class="form-control" id="tgl_masuk" value="" required="">
+                             <input type="date" name="tgl_masuk" class="form-control" id="tgl_masuk" value="<?php echo $pegawai->tgl_masuk; ?>">
                               
                           </div>
                       </div>
                        <div class="form-group ">
                           <label>No. NPWP</label>
                           <div class="form-group">
-                             <input type="text" name="no_npwp" class="form-control" id="no_npwp" value="">
-                              <input type="hidden" name="id_status_pegawai" class="form-control" id="id_status_pegawai" value="1">
+                             <input type="text" name="no_npwp" class="form-control" id="no_npwp" value="<?php echo $pegawai->no_npwp; ?>">
                           </div>
                       </div>
                        <div class="form-group ">
                           <label>No. Askes Pegawai</label>
                           <div class="form-group">
-                             <input type="text" name="no_askes_pegawai" class="form-control" id="no_askes_pegawai" value="">
+                             <input type="text" name="no_askes_pegawai" class="form-control" id="no_askes_pegawai" value="<?php echo $pegawai->no_askes_pegawai; ?>">
                               
                           </div>
                       </div>
                       <div class="form-group ">
                           <label>Foto Pegawai</label>
                           <div class="form-group">
-                             <input type="file" name="foto_pegawai" class="form-control" id="foto_pegawai" value="">
+                             <input type="file" name="foto_pegawai" class="form-control" id="foto_pegawai" value="<?php echo $pegawai->foto_pegawai; ?>">
                               
                           </div>
                       </div>
                   
-                      <br>
-                      <br>
                       <br>
 
                        <button type="submit" class="btn btn-info pull-right">Simpan</button>

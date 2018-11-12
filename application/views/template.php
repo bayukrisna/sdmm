@@ -183,22 +183,9 @@ a:hover .tooltiptext {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li <?php if($this->uri->segment(2) == 'status_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>Master/status_pegawai"><i class="fa fa-circle-o"></i>STATUS PEGAWAI</a></li>
-            <li <?php if($this->uri->segment(2) == 'jenis_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>Master/jenis_pegawai"><i class="fa fa-circle-o"></i>JENIS PEGAWAI</a></li>
+            <li <?php if($this->uri->segment(2) == 'status_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>master/status_pegawai"><i class="fa fa-circle-o"></i>STATUS PEGAWAI</a></li>
+            <li <?php if($this->uri->segment(2) == 'jenis_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>master/jenis_pegawai"><i class="fa fa-circle-o"></i>JENIS PEGAWAI</a></li>
 
-          </ul>
-        </li>
-        <li class="treeview <?php if($this->uri->segment(2) == 'user_login' OR $this->uri->segment(2) == 'data_log' OR $this->uri->segment(1) == 'admin' && $this->uri->segment(2) == '') echo 'active'; else echo  '';?>">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>PENGGUNA (<i>USER</i>)</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li <?php if($this->uri->segment(1) == 'admin' && $this->uri->segment(2) == '') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>admin"><i class="fa fa-circle-o"></i>SEMUA</a></li>
-            <li <?php if($this->uri->segment(2) == 'user_login') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>admin/user_login"><i class="fa fa-circle-o"></i>USER LOGIN</a></li>
-            <li <?php if($this->uri->segment(2) == 'data_log') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>admin/data_log"><i class="fa fa-circle-o"></i>AKTIVITAS USER</a></li>
           </ul>
         </li>
         <li class="treeview <?php if($this->uri->segment(1) == 'pegawai' AND $this->uri->segment(2) == '') echo 'active'; else echo  '';?>">
@@ -221,8 +208,7 @@ a:hover .tooltiptext {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li <?php if($this->uri->segment(2) == 'laporan_barang') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>laporan/laporan_barang"><i class="fa fa-circle-o"></i>LAPORAN BARANG</a></li>
-            <li <?php if($this->uri->segment(2) == 'laporan_pemeliharaan') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>laporan/laporan_pemeliharaan"><i class="fa fa-circle-o"></i>LAPORAN PEMELIHARAAN</a></li>
+            
           </ul>
         </li>
         

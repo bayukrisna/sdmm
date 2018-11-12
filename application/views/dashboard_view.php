@@ -9,9 +9,9 @@
               <p>Total Pegawai</p>
             </div>
             <div class="icon">
-              <i class="fa fa-barcode"></i>
+              <i class="fa fa-user"></i>
             </div>
-            <a href="<?php echo base_url(); ?>barang/data_aset" class="small-box-footer">Lihat Data <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url(); ?>pegawai" class="small-box-footer">Lihat Data <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">

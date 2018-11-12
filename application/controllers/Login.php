@@ -7,12 +7,6 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('user_model');
-		$this->load->model('user_model');
-	}
-	public function tes(){
-		$c = $this->db->from('tb_user')->where('username', 'Bayu Krisna')->get()->row();
-		print_r($c);
-
 	}
 	public function index()
 	{
@@ -54,11 +48,9 @@ class Login extends CI_Controller {
 				            $ss = explode(",",$userDn);
  							$sess_data2['group'] = substr($ss[0],3);
 			            }
-			            $this->user_model->create_user($sess_data2['username']);
 
 				        foreach ($info as $sess) {
 				        	$kk = $sess['cn'][0];
-				        	$id_user = $this->db->from('tb_user')->where('username', $kk)->get()->row();
 				        	$userDn = $sess['memberof'][0];
 				            $ss = explode(",",$userDn);
 				            
@@ -66,11 +58,9 @@ class Login extends CI_Controller {
 			                $sess_data['username'] = $sess['cn'][0];
 			                $sess_data['group'] = substr($ss[0],3);
 			                $sess_data['email'] = $sess['mail'][0];
-			                $sess_data['id_user'] = $id_user->id_user;
 
 			            }
 			            if($sess_data['group'] == 'IT' || $sess_data['group'] == 'ITGroup' || $sess_data['group'] == 'AcademicGroup' || $sess_data['group'] == 'AccountingGroup'){
-			            	$this->user_model->create_akses($sess_data['id_user']);
 			            	$this->session->set_userdata($sess_data);
 				            @ldap_close($ldap);
 				            redirect(base_url('dashboard'));	
