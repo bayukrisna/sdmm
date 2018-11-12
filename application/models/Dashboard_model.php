@@ -11,39 +11,51 @@ class Dashboard_model extends CI_Model {
 	}
 
      public function dashboard_admin(){
-     	$t_perusahaan = $this->db->select('count(*) as total')
-	                ->get('tb_kategori')
+     	$t_pegawai = $this->db->select('count(*) as total')
+	                ->get('tb_pegawai')
 	                ->row();
-	    $t_barang = $this->db->select('count(*) as total')
-	                ->get('tb_barang')
-	                ->row();
-	    $t_merk = $this->db->select('count(*) as total')
-	                ->get('tb_merk')
-	                ->row();
-	    $t_model = $this->db->select('count(*) as total')
-	                ->get('tb_model')
-	                ->row();
+	    $t_status_pegawai = $this->status_pegawai_chart();
+	    $t_jenis_pegawai = $this->jenis_pegawai_chart();
 
 	    return array(
-	      't_perusahaan' => $t_perusahaan->total,
-	      't_barang' => $t_barang->total,
-	      't_merk' => $t_merk->total,
-	      't_model' => $t_model->total
+	      't_pegawai' => $t_pegawai->total,
+	      't_status_pegawai' => $t_status_pegawai,
+	      't_jenis_pegawai' => $t_jenis_pegawai
 
 	      );
 	  }
-	public function data_log(){
-     return $this->db->select('user1.username as username, user2.username as to, tb_log.waktu_log, tb_log.aktivitas, tb_log.waktu_log, tb_barang.nama_barang')
-     				->from('tb_log')
-     				->join('tb_user as user1','user1.id_user=tb_log.user_log')
-     				->join('tb_barang','tb_barang.id_barang=tb_log.id_barang')
-     				->join('tb_user as user2','user2.id_user=tb_barang.id_user')
-     				
-     				->order_by('tb_log.waktu_log', 'desc')
-     				->limit(5)
-                    ->get('')                    
-                    ->result();
-   }
+	  public function status_pegawai_chart(){
+	    $a = $this->db->select('tb_status_pegawai.status_pegawai, count(tb_pegawai.id_pegawai) as jumlah')
+	                    ->join('tb_status_pegawai', 'tb_status_pegawai.id_status_pegawai = tb_pegawai.id_status_pegawai')
+	                    ->group_by('tb_status_pegawai.status_pegawai')
+	                    ->get('tb_pegawai')
+	                    ->result();
+	        
+	        foreach ($a as $key) {
+	            $b = '#'.dechex(rand(0x777777, 0xFFFFFF));
+	            $arrayName[] = array('value' => $key->jumlah,
+	                                'color' => $b,
+	                                'label' => $key->status_pegawai);
+	        }
+	        $c = json_encode($arrayName);
+	        return $c;
+	  }
+	  public function jenis_pegawai_chart(){
+	    $a = $this->db->select('tb_jenis_pegawai.jenis_pegawai, count(tb_pegawai.id_pegawai) as jumlah')
+	                    ->join('tb_jenis_pegawai', 'tb_jenis_pegawai.id_jp = tb_pegawai.id_jp')
+	                    ->group_by('tb_jenis_pegawai.jenis_pegawai')
+	                    ->get('tb_pegawai')
+	                    ->result();
+	        
+	        foreach ($a as $key) {
+	            $b = '#'.dechex(rand(0x777777, 0xFFFFFF));
+	            $arrayName[] = array('value' => $key->jumlah,
+	                                'color' => $b,
+	                                'label' => $key->jenis_pegawai);
+	        }
+	        $c = json_encode($arrayName);
+	        return $c;
+	  }
 	
 
 }

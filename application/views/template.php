@@ -175,7 +175,7 @@ a:hover .tooltiptext {
         <li class="header">MAIN NAVIGATION</li>
          <li <?php if($this->uri->segment(1) == 'dashboard') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>dashboard"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
         
-        <li class="treeview <?php if($this->uri->segment(1) == 'perusahaan' OR $this->uri->segment(2) == 'status' OR $this->uri->segment(1) == 'kategori' OR $this->uri->segment(1) == 'merk' OR $this->uri->segment(1) == 'model' OR $this->uri->segment(1) == 'supplier') echo 'active'; else echo  '';?>">
+        <li class="treeview <?php if($this->uri->segment(2) == 'status_pegawai' OR $this->uri->segment(2) == 'jenis_pegawai') echo 'active'; else echo  '';?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>MASTER</span>
             <span class="pull-right-container">
@@ -183,12 +183,8 @@ a:hover .tooltiptext {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li <?php if($this->uri->segment(1) == 'perusahaan') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>perusahaan"><i class="fa fa-circle-o"></i>PERUSAHAAN</a></li>
-            <li <?php if($this->uri->segment(2) == 'status') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>barang/status"><i class="fa fa-circle-o"></i>STATUS</a></li>
-            <li <?php if($this->uri->segment(1) == 'kategori') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>kategori"><i class="fa fa-circle-o"></i>KATEGORI BARANG</a></li>
-            <li <?php if($this->uri->segment(1) == 'merk') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>merk"><i class="fa fa-circle-o"></i>MERK / BRAND</a></li>
-            <li <?php if($this->uri->segment(1) == 'model') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>model"><i class="fa fa-circle-o"></i>MODEL / TIPE</a></li>
-            <li <?php if($this->uri->segment(1) == 'supplier') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>supplier"><i class="fa fa-circle-o"></i>PEMASOK / SUPPLIER</a></li>
+            <li <?php if($this->uri->segment(2) == 'status_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>Master/status_pegawai"><i class="fa fa-circle-o"></i>STATUS PEGAWAI</a></li>
+            <li <?php if($this->uri->segment(2) == 'jenis_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>Master/jenis_pegawai"><i class="fa fa-circle-o"></i>JENIS PEGAWAI</a></li>
 
           </ul>
         </li>
