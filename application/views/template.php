@@ -205,44 +205,18 @@ a:hover .tooltiptext {
             <li <?php if($this->uri->segment(2) == 'data_log') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>admin/data_log"><i class="fa fa-circle-o"></i>AKTIVITAS USER</a></li>
           </ul>
         </li>
-        <li class="treeview <?php if($this->uri->segment(1) == 'lahan' OR $this->uri->segment(1) == 'gedung' OR $this->uri->segment(1) == 'ruang' ) echo 'active'; else echo  '';?>">
+        <li class="treeview <?php if($this->uri->segment(1) == 'pegawai' AND $this->uri->segment(2) == '') echo 'active'; else echo  '';?>">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>PRASARANA</span>
+            <i class="fa fa-dashboard"></i> <span>PEGAWAI</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li <?php if($this->uri->segment(1) == 'lahan') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>lahan"><i class="fa fa-circle-o"></i>LAHAN</a></li>
-            <li <?php if($this->uri->segment(1) == 'gedung') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>gedung"><i class="fa fa-circle-o"></i>GEDUNG / BANGUNAN</a></li>
-            <li <?php if($this->uri->segment(1) == 'ruang') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>ruang"><i class="fa fa-circle-o"></i>RUANG</a></li>
+            <li <?php if($this->uri->segment(1) == 'pegawai' AND $this->uri->segment(2) == '') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>pegawai"><i class="fa fa-circle-o"></i>DATA PEGAWAI</a></li>
           </ul>
         </li>
-        <?php $c =  $this->db->where('id_user', $this->session->userdata('id_user'))->get('tb_akses')->row();
-        if ($c->v_bar == 1) { ?>
-        <li class="treeview <?php if($this->uri->segment(2) == 'data_aset' OR $this->uri->segment(1) == 'barang' && $this->uri->segment(2) == '') echo 'active'; else echo  '';?>">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>SARANA</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="treeview <?php if($this->uri->segment(2) == 'data_aset' OR $this->uri->segment(1) == 'barang' && $this->uri->segment(2) == '') echo 'active'; else echo  '';?>">
-          <a href="#">
-            <i class="fa fa-circle-o"></i> <span>BARANG / ASET</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li <?php if($this->uri->segment(2) == 'data_aset') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>barang/data_aset"><i class="fa fa-circle-o"></i>SEMUA</a></li>
-            <li <?php if($this->uri->segment(1) == 'barang' && $this->uri->segment(2) == '') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>barang"><i class="fa fa-circle-o"></i>PER KATEGORI</a></li>
-          </ul>
-        </li>
-          </ul>
-        </li>
-      <?php } ?>
+
         <li class="treeview <?php if($this->uri->segment(2) == 'laporan_barang' OR $this->uri->segment(2) == 'laporan_pemeliharaan') echo 'active'; else echo  '';?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>LAPORAN</span>
