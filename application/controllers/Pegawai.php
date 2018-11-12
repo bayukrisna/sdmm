@@ -7,6 +7,7 @@ class Pegawai extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('pegawai_model');
+		ini_set('display_errors', 0);
 		if ($this->session->userdata('logged_in') != TRUE) {
 			redirect('login');
 		}

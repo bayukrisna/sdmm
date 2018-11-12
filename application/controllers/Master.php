@@ -7,6 +7,7 @@ class Master extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Master_model');
+		ini_set('display_errors', 0);
 		 if ($this->session->userdata('logged_in') != TRUE) {
 		 	redirect(base_url('login'));
 		 }
