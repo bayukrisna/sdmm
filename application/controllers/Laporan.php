@@ -9,15 +9,6 @@ class Laporan extends CI_Controller {
 		$this->load->model('Laporan_model');
 	}
 
-	public function index()
-	{
-		if ($this->session->userdata('logged_in') == TRUE) {
-		$data['main_view'] = 'Laporan/laporan_tamu_view';
-		$this->load->view('template', $data);
-		} else {
-			redirect('login');
-		}
-	}
 	public function pegawai(){
 		$data['get_status_pegawai'] = $this->db->get('tb_status_pegawai')->result();
 		$data['get_jenis_pegawai'] = $this->db->get('tb_jenis_pegawai')->result();
