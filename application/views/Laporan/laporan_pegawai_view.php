@@ -47,6 +47,44 @@
 
                 </div>
                 <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Divisi</label>
+
+                  <div class="col-sm-10">
+                    <div class="col-sm-6">
+                      <select name="id_divisi" id="id_divisi" class="form-control">
+                        <option value="">Semua</option>
+                        <?php 
+                          foreach($get_divisi as $row)
+                            { 
+                            echo '<option value="'.$row->id_divisi.'">'.$row->nama_divisi.'</option>';
+                              }
+                         ?>
+                      </select>
+                    </div>
+              <br>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Campus</label>
+
+                  <div class="col-sm-10">
+                    <div class="col-sm-6">
+                      <select name="id_campus" id="id_campus" class="form-control">
+                        <option value="">Semua</option>
+                        <?php 
+                          foreach($get_campus as $row)
+                            { 
+                            echo '<option value="'.$row->id_campus.'">'.$row->nama_campus.'</option>';
+                              }
+                         ?>
+                      </select>
+                    </div>
+              <br>
+                  </div>
+
+                </div>
+                <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Jenis Pegawai</label>
 
                   <div class="col-sm-10">
@@ -62,6 +100,7 @@
                       </select>
                     <br>
                   <p class="btn btn-info" onclick="tampil()">Tampilkan</p>
+                  <p class="btn btn-primary" onclick="cek()">Print</p>
 
                 </div>
                     <br>
@@ -77,51 +116,29 @@
               <!-- /.box-footer -->
             </form>
           </div>
-      <div class="box">
-        <div class="box-body" id="employee_table">
-          
-            <table id="example" class="">
-              <thead>
-                  <tr>
-                      <th width="1%">No</th>
-                      <th>Nama Pegawai</th>
-                      <th>Tempat Lahir</th>
-                      <th>Alamat</th>
-                      <th>No Telephone</th>
-                      <th>Email</th>
-                  </tr>
-              </thead>
-          </table>
-          
-        </div>
-      </div>
-      <!-- <button type="button" onclick="cek()" name="" id="" class="btn btn-success">Export Excel </button> -->  
-    </div>
+          <div class="box" id="show_data">
+          </div>
   </div>
 </section>
 <script type="text/javascript">
     function tampil(){
         $.ajax({
                     url: '<?php echo base_url(); ?>Laporan/tampil_pegawai/',
-                    data: 'tanggal_masuk='+document.getElementById("tanggal_masuk").value+'&tanggal_masuk2='+document.getElementById("tanggal_masuk2").value+'&id_status_pegawai='+document.getElementById("id_status_pegawai").value+'&id_jp='+document.getElementById("id_jp").value,
+                    data: 'tanggal_masuk='+document.getElementById("tanggal_masuk").value+'&tanggal_masuk2='+document.getElementById("tanggal_masuk2").value+'&id_status_pegawai='+document.getElementById("id_status_pegawai").value+'&id_jp='+document.getElementById("id_jp").value+'&id_divisi='+document.getElementById("id_divisi").value+'&id_campus='+document.getElementById("id_campus").value,
                     type: 'POST',
-                    dataType: 'json',
+                    dataType: 'html',
                     success:function(msg){
-                    $('#example').DataTable( {
-                        data:           msg,  
-                        deferRender:    true,
-                        scrollCollapse: true,
-                        scroller:       true,
-                        "autoWidth": true
-                    } );
+                    $("#show_data").html(msg);
                     },
                     error:function (){}
                 });
     }
+    
     function cek(){
-        var a = document.getElementById("userId").value;
-        var b = document.getElementById("start").value;
-        var c = document.getElementById("end").value;
-        window.location = '<?php echo base_url(); ?>Report/export_borrowing/'+a+'/'+b+'/'+c;
+     var printContents = document.getElementById("show_data").innerHTML;
+      var originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents; 
     }
 </script>
