@@ -21,6 +21,8 @@ class Pegawai_model extends CI_Model {
             'id_agama'         => $this->input->post('id_agama'),
             'id_status_pegawai'         => $this->input->post('id_status_pegawai'),
             'id_jp'         => $this->input->post('id_jp'),
+            'id_divisi'         => $this->input->post('id_divisi'),
+            'id_campus'         => $this->input->post('id_campus'),
             'alamat'         => $this->input->post('alamat'),
             'no_npwp'         => $this->input->post('no_npwp'),
             'no_askes_pegawai'         => $this->input->post('no_askes_pegawai'),
@@ -53,6 +55,8 @@ class Pegawai_model extends CI_Model {
             'id_agama'         => $this->input->post('id_agama'),
             'id_status_pegawai'         => $this->input->post('id_status_pegawai'),
             'id_jp'         => $this->input->post('id_jp'),
+            'id_divisi'         => $this->input->post('id_divisi'),
+            'id_campus'         => $this->input->post('id_campus'),
             'alamat'         => $this->input->post('alamat'),
             'no_npwp'         => $this->input->post('no_npwp'),
             'no_askes_pegawai'         => $this->input->post('no_askes_pegawai'),
@@ -79,6 +83,8 @@ class Pegawai_model extends CI_Model {
      return $this->db->join('tb_kelamin','tb_kelamin.id_kelamin=tb_pegawai.id_kelamin')
                     ->join('tb_status_pegawai','tb_status_pegawai.id_status_pegawai=tb_pegawai.id_status_pegawai')
                     ->join('tb_jenis_pegawai','tb_jenis_pegawai.id_jp=tb_pegawai.id_jp')
+                    ->join('tb_divisi','tb_divisi.id_divisi=tb_pegawai.id_divisi')
+                    ->join('tb_campus','tb_campus.id_campus=tb_pegawai.id_campus')
                     ->order_by('tb_pegawai.nama_pegawai', 'ASC')
                     ->get('tb_pegawai')
                     ->result();
@@ -88,6 +94,8 @@ class Pegawai_model extends CI_Model {
      return $this->db->join('tb_kelamin','tb_kelamin.id_kelamin=tb_pegawai.id_kelamin')
                     ->join('tb_status_pegawai','tb_status_pegawai.id_status_pegawai=tb_pegawai.id_status_pegawai') 
                     ->join('tb_jenis_pegawai','tb_jenis_pegawai.id_jp=tb_pegawai.id_jp')
+                    ->join('tb_divisi','tb_divisi.id_divisi=tb_pegawai.id_divisi')
+                    ->join('tb_campus','tb_campus.id_campus=tb_pegawai.id_campus')
                     ->join('tb_agama','tb_agama.id_agama=tb_pegawai.id_agama','left')        
                     ->where('tb_pegawai.id_pegawai', $id_pegawai)
                     ->get('tb_pegawai')

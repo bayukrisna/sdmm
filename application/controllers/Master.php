@@ -20,7 +20,7 @@ class Master extends CI_Controller {
 	//===================================================================================\\
 	public function status_pegawai(){
 		$data['pegawai'] = $this->master_model->get_status_pegawai();
-		$data['main_view'] = 'master/status_pegawai_view';
+		$data['main_view'] = 'Master/status_pegawai_view';
 		$this->load->view('template', $data);
 	}
 	public function add_status_pegawai(){
@@ -54,7 +54,7 @@ class Master extends CI_Controller {
 	//===================================================================================\\
 	public function jenis_pegawai(){
 		$data['pegawai'] = $this->master_model->get_jenis_pegawai();
-		$data['main_view'] = 'master/jenis_pegawai_view';
+		$data['main_view'] = 'Master/jenis_pegawai_view';
 		$this->load->view('template', $data);
 	}
 	public function add_jenis_pegawai(){
@@ -89,7 +89,7 @@ class Master extends CI_Controller {
 	//===================================================================================\\
 	public function divisi(){
 		$data['divisi'] = $this->master_model->data_divisi();
-		$data['main_view'] = 'master/divisi_pegawai_view';
+		$data['main_view'] = 'Master/divisi_pegawai_view';
 		$this->load->view('template', $data);
 	}
 	public function add_divisi(){
@@ -124,7 +124,7 @@ class Master extends CI_Controller {
 
 	public function campus(){
 		$data['campus'] = $this->master_model->data_campus();
-		$data['main_view'] = 'master/campus_pegawai_view';
+		$data['main_view'] = 'Master/campus_pegawai_view';
 		$this->load->view('template', $data);
 	}
 	public function add_campus(){

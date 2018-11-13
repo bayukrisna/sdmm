@@ -65,6 +65,13 @@
                         <label for="email">Email</label>
                         <input type="email" name="email" class="form-control" id="email" value="<?php echo $pegawai->email; ?>" >
                       </div>
+                      <div class="form-group ">
+                          <label>Foto Pegawai</label>
+                          <div class="form-group">
+                             <input type="file" name="foto_pegawai" class="form-control" id="foto_pegawai" value="<?php echo $pegawai->foto_pegawai; ?>">
+                              
+                          </div>
+                      </div>
                       <div class="form-group">
                         <label for="email">Alamat</label>
                         <textarea name="alamat" id="alamat" class="form-control" placeholder="Isi Bila Ada"><?php echo $pegawai->alamat; ?></textarea>
@@ -114,6 +121,40 @@
                           </div>
                       </div>
                       <div class="form-group ">
+                          <label>Divisi <font color="#FF0000">*</font></label>
+                          <div class="form-group">
+                              <select class="select2" style="width:100%" name="id_divisi" required="">
+                                  <option value="<?php echo $pegawai->id_divisi; ?>" selected="selected"> <?php echo $pegawai->nama_divisi; ?> </option>
+                                      <?php 
+
+                                    foreach($getDivisi as $row)
+                                    { 
+                                      echo '<option value="'.$row->id_divisi.'">'.$row->nama_divisi.'</option>';
+                                    }
+                                    ?>
+                              </select>
+                               
+                              
+                          </div>
+                      </div>
+                      <div class="form-group ">
+                          <label>Kampus <font color="#FF0000">*</font></label>
+                          <div class="form-group">
+                              <select class="select2" style="width:100%" name="id_campus" required="">
+                                  <option value="<?php echo $pegawai->id_campus; ?>" selected="selected"> <?php echo $pegawai->nama_campus; ?> </option>
+                                      <?php 
+
+                                    foreach($getCampus as $row)
+                                    { 
+                                      echo '<option value="'.$row->id_campus.'">'.$row->nama_campus.'</option>';
+                                    }
+                                    ?>
+                              </select>
+                               
+                              
+                          </div>
+                      </div>
+                      <div class="form-group ">
                           <label>No Kartu Pegawai</label>
                           <div class="form-group">
                              <input type="text" name="no_kartu_pegawai" class="form-control" id="no_kartu_pegawai" value="<?php echo $pegawai->no_kartu_pegawai; ?>">
@@ -140,13 +181,7 @@
                               
                           </div>
                       </div>
-                      <div class="form-group ">
-                          <label>Foto Pegawai</label>
-                          <div class="form-group">
-                             <input type="file" name="foto_pegawai" class="form-control" id="foto_pegawai" value="<?php echo $pegawai->foto_pegawai; ?>">
-                              
-                          </div>
-                      </div>
+                      
                   
                       <br>
 

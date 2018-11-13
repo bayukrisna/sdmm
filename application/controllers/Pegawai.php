@@ -7,6 +7,7 @@ class Pegawai extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('pegawai_model');
+		$this->load->model('master_model');
 		ini_set('display_errors', 0);
 		if ($this->session->userdata('logged_in') != TRUE) {
 			redirect('login');
@@ -21,6 +22,8 @@ class Pegawai extends CI_Controller {
 
 	public function tambah_pegawai()
 	{
+			$data['getCampus'] = $this->master_model->data_campus();
+			$data['getDivisi'] = $this->master_model->data_divisi();
 			$data['getJenisPegawai'] = $this->pegawai_model->getJenisPegawai();
 			$data['main_view'] = 'Pegawai/tambah_pegawai_view';
 			$this->load->view('template', $data);

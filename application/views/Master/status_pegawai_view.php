@@ -13,7 +13,7 @@
               <div class="table-responsive">
               <table id="example1" class="table2 table-hover table-striped table-condensed" style="text-transform: uppercase;">
                 
-                <a href="" data-toggle="modal" data-target="#modal_tambah" class="btn btn-primary btn-sm btn-flat" ><i class="fa fa-plus"></i> Add</a> <br> <br>
+                <a href="" data-toggle="modal" data-target="#modal_tambah" class="btn btn-primary btn-sm btn-flat" ><i class="fa fa-plus"></i> Tambah</a> <br> <br>
               <thead>
               <tr>
                 <th width="1%" >No.</th>
@@ -59,7 +59,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-                <h3 class="modal-title" id="myModalLabel">ADD STATUS PEGAWAI</h3>
+                <h3 class="modal-title" id="myModalLabel">TAMBAH STATUS PEGAWAI</h3>
             </div>
                 <div class="modal-body">
                         <?php echo form_open('Master/add_status_pegawai', 'class="form-horizontal" method="post" role="form" enctype="multipart/form-data"'); ?>
