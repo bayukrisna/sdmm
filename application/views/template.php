@@ -175,7 +175,7 @@ a:hover .tooltiptext {
         <li class="header">MAIN NAVIGATION</li>
          <li <?php if($this->uri->segment(1) == 'dashboard') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>dashboard"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
         
-        <li class="treeview <?php if($this->uri->segment(2) == 'status_pegawai' OR $this->uri->segment(2) == 'jenis_pegawai') echo 'active'; else echo  '';?>">
+        <li class="treeview <?php if($this->uri->segment(2) == 'status_pegawai' OR $this->uri->segment(2) == 'jenis_pegawai' OR $this->uri->segment(2) == 'divisi' OR $this->uri->segment(2) == 'campus') echo 'active'; else echo  '';?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>MASTER</span>
             <span class="pull-right-container">
@@ -185,6 +185,8 @@ a:hover .tooltiptext {
           <ul class="treeview-menu">
             <li <?php if($this->uri->segment(2) == 'status_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>master/status_pegawai"><i class="fa fa-circle-o"></i>STATUS PEGAWAI</a></li>
             <li <?php if($this->uri->segment(2) == 'jenis_pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>master/jenis_pegawai"><i class="fa fa-circle-o"></i>JENIS PEGAWAI</a></li>
+            <li <?php if($this->uri->segment(2) == 'divisi') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>master/divisi"><i class="fa fa-circle-o"></i>DIVISI</a></li>
+            <li <?php if($this->uri->segment(2) == 'campus') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>master/campus"><i class="fa fa-circle-o"></i>KAMPUS</a></li>
 
           </ul>
         </li>
@@ -200,7 +202,7 @@ a:hover .tooltiptext {
           </ul>
         </li>
 
-        <li class="treeview <?php if($this->uri->segment(2) == 'laporan_barang' OR $this->uri->segment(2) == 'laporan_pemeliharaan') echo 'active'; else echo  '';?>">
+        <li class="treeview <?php if($this->uri->segment(2) == 'pegawai') echo 'active'; else echo  '';?>">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>LAPORAN</span>
             <span class="pull-right-container">
@@ -208,7 +210,7 @@ a:hover .tooltiptext {
             </span>
           </a>
           <ul class="treeview-menu">
-            
+            <li <?php if($this->uri->segment(2) == 'pegawai') echo 'class="active"'; else echo  '';?>><a href="<?php echo base_url(); ?>laporan/pegawai"><i class="fa fa-circle-o"></i>LAPORAN PEGAWAI</a></li>
           </ul>
         </li>
         
