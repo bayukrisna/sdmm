@@ -9,7 +9,7 @@
               <p>Total Pegawai Aktif</p>
             </div>
             <div class="icon">
-              <i class="fa fa-user"></i>
+              <i class="fa fa-users"></i>
             </div>
             <a href="<?php echo base_url(); ?>pegawai" class="small-box-footer">Lihat Data <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -39,7 +39,7 @@
               <p>Total Divisi</p>
             </div>
             <div class="icon">
-              <i class="fa fa-user"></i>
+              <i class="fa fa-barcode"></i>
             </div>
             <a href="<?php echo base_url(); ?>master/divisi" class="small-box-footer">Lihat Data <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -54,7 +54,7 @@
               <p>Total Kampus</p>
             </div>
             <div class="icon">
-              <i class="fa fa-user"></i>
+              <i class="fa fa-building"></i>
             </div>
             <a href="<?php echo base_url(); ?>master/campus" class="small-box-footer">Lihat Data <i class="fa fa-arrow-circle-right"></i></a>
           </div>

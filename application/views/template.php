@@ -142,16 +142,14 @@ a:hover .tooltiptext {
 
                 <p>
                   <?php echo $this->session->userdata('username'); ?>
-                  <small>JIC | SISTEM SARANA & PRASARANA</small>
+                  <small>JIC | SISTEM INFORMASI KEPEGAWAIAN</small>
                 </p>
               </li>
               <!-- Menu Body -->
               
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="<?php echo base_url(); ?>admin/user_log/<?php echo $this->session->userdata('id_user'); ?>" class="btn btn-default fa fa-detail">History</a>
-                </div>
+                
                 <div class="pull-right">
                   <a href="<?php echo base_url(); ?>login/logout" class="btn btn-default fa fa-sign-out">Logout</a>
                 </div>
